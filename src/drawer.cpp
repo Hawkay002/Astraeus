@@ -428,7 +428,7 @@ void Drawer::Close() {
     model.CloseCal();
     model.SetLive(false, false);
     spring.target = 0;
-    spring.damp = 0.92f; // near critical, retract without bounce
+    spring.damp = model.reduceMotion ? 1.0f : 0.62f; // the opening drip run the other way, same spring; calm: it just arrives
     Redraw();
 }
 
